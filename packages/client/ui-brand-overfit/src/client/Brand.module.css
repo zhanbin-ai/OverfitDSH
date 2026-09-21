@@ -1,0 +1,5 @@
+/* The name span sits inside the sidebar's .brandName seat (18px / 600). */
+.name {
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
