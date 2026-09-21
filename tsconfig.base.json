@@ -206,6 +206,8 @@
       "@deepseek-ai/dsh-client-ui-product-theme/client": ["./packages/client/ui-product-theme/src/client"],
       "@deepseek-ai/dsh-client-ui-brand-overfit": ["./packages/client/ui-brand-overfit/src"],
       "@deepseek-ai/dsh-client-ui-brand-overfit/client": ["./packages/client/ui-brand-overfit/src/client"],
+      "@deepseek-ai/dsh-client-ui-command-palette": ["./packages/client/ui-command-palette/src"],
+      "@deepseek-ai/dsh-client-ui-command-palette/client": ["./packages/client/ui-command-palette/src/client"],
       "@deepseek-ai/dsh-client-store": ["./packages/client/store/src/index.ts"],
       "@deepseek-ai/dsh-client-ui-renderer": ["./packages/client/ui-renderer/src"],
       "@deepseek-ai/dsh-client-ui-renderer/client": ["./packages/client/ui-renderer/src/client"],

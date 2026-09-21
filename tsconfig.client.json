@@ -96,6 +96,7 @@
     { "path": "./packages/client/ui-git" },
     { "path": "./packages/client/ui-product-theme" },
     { "path": "./packages/client/ui-brand-overfit" },
+    { "path": "./packages/client/ui-command-palette" },
     { "path": "./packages/client/ui-jobs" },
     { "path": "./packages/client/ui-schedule" },
     { "path": "./packages/client/ui-directory-picker-browse" },

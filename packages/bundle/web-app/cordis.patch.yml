@@ -256,6 +256,10 @@
     - id: ui-git
       name: '@deepseek-ai/dsh-client-ui-git'
 
+    # Ctrl+K command palette: sessions, workspaces, and app commands in one overlay.
+    - id: command-palette
+      name: '@deepseek-ai/dsh-client-ui-command-palette'
+
     - id: ui-settings
       name: '@deepseek-ai/dsh-client-ui-settings'
 
