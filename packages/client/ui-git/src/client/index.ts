@@ -6,10 +6,12 @@
  * dictionaries into the locale registry. No host surface yet.
  */
 import type { Context as ClientContext } from '@deepseek-ai/cordis'
+import type {} from '@deepseek-ai/dsh-api-remotes/client'
 import type {} from '@deepseek-ai/dsh-client-ui-renderer/client'
 import type {} from '@deepseek-ai/dsh-client-ui-session/client'
 import type {} from '@deepseek-ai/dsh-client-ui-sidebar-right/client'
 import { GIT_ID, gitDefinition } from './definition.tsx'
+import { gitFace } from './face.ts'
 import { GitBody } from './GitBody.tsx'
 import { en, zh } from './locales.ts'
 
@@ -17,9 +19,10 @@ import { en, zh } from './locales.ts'
 const NS = 'sidebarGit'
 
 /**
- * Required browser services: the tab registry, the keyed seat, and copy.
+ * Required browser services: the tab registry, the keyed seat, the Remote
+ * carrier and the `git` namespace, and copy.
  */
-export const inject = ['slots', 'locale', 'sidebarRightTabs']
+export const inject = ['slots', 'locale', 'sidebarRightTabs', 'remote', 'remote.git']
 
 /**
  * Client plugin body: register the type, its dictionaries, and its body.
@@ -30,7 +33,7 @@ export function apply(ctx: ClientContext): void {
   ctx.effect(() => ctx.sidebarRightTabs.register(gitDefinition(t)), 'ui-git: git type')
   ctx.effect(() => ctx.locale.register(NS, { zh, en }), 'ui-git: dictionaries')
   ctx.effect(() => ctx.slots.inject('sidebar.right.pane.tab', () => ctx.slots.register(
-    { name: 'sidebar.right.pane.tab', key: GIT_ID, locale: NS },
+    { name: 'sidebar.right.pane.tab', key: GIT_ID, locale: NS, inject: gitFace(ctx.remote) },
     GitBody,
   )), 'ui-git: git tab body')
 }

@@ -50,6 +50,7 @@
     "lib/types/**/*.d.ts"
   ],
   "dependencies": {
+    "@deepseek-ai/dsh-api-git": "workspace:^",
     "@deepseek-ai/dsh-deque": "workspace:^",
     "@deepseek-ai/dsh-session": "workspace:^",
     "@deepseek-ai/dsh-util-values": "workspace:^"

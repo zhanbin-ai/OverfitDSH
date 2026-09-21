@@ -109,6 +109,11 @@
     - id: workspace-files
       name: '@deepseek-ai/dsh-api-workspace-files'
 
+    # Git working-tree service: status, diffs, staging, commits, and recent
+    # history inside the session workspace root.
+    - id: git
+      name: '@deepseek-ai/dsh-api-git'
+
     # Configuration-surface reads and writes over Typert Remote. Each method
     # reports an actionable error when its settings-domain provider is absent.
     - id: settings-controller
