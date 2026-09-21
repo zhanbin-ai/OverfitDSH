@@ -9,9 +9,9 @@ kind: "package-reference"
 
 ## 概述
 
-本包让「拟合（Overfit）」构建拥有自己的可见品牌：占据侧栏品牌对——`sidebar.brand.mark` 与 `sidebar.brand.name`——以及会话首屏标志 `conversation.hero.brand.mark`，用产品的拟合曲线标志与本地化名称替换外壳的鱼形回退。
+本包让「拟合（Overfit）」构建拥有自己的可见品牌：占据侧栏品牌对——`sidebar.brand.mark` 与 `sidebar.brand.name`——以及会话首屏标志 `conversation.hero.brand.mark`，用产品的拟合球标志与本地化名称替换外壳的鱼形回退。
 
-标志是一条穿过三个样本点的平滑曲线：拟合二字最字面的手势。它以纯 SVG、`currentColor` 绘制，每个界面都能随主题着色，无需第二份资源。名称来自本包的 `overfit` 语言命名空间——中文为「拟合」，英文为「Overfit」。
+标志是一颗停在上升拟合曲线末端的光泽数据球——以立体轮廓优先（明亮的球体、扫掠的尾迹），辅以柔和的接地投影、轮廓受光与高光点，取得立体深度。名称来自本包的 `overfit` 语言命名空间——中文为「拟合」，英文为「Overfit」。
 
 ## 使用本包
 

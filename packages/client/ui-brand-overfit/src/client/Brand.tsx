@@ -1,11 +1,13 @@
 /**
  * The 拟合 / Overfit brand marks and name for the sidebar and hero slots.
  *
- * The mark is a smooth fit through three sample points — the literal gesture
- * of 拟合 / fitting — drawn as plain SVG in `currentColor`, so every surface
- * themes it without a second asset. The hero mark keeps the host's `className`
- * so the surrounding geometry (and its gentle hover sway) stays intact.
+ * The mark is a glossy data sphere riding the end of a rising fit curve —
+ * dimensional silhouette first (a bright ball, a swept trail), with a soft
+ * ground shadow, a rim light, and a specular highlight for depth. Colours are
+ * the product teal family; both surfaces share one geometry, and gradient ids
+ * are per-instance so two marks can coexist in one document.
  */
+import { useId } from 'react'
 import type { ReactNode } from 'react'
 import type { PropsLocale } from '@deepseek-ai/dsh-client-ui-slots'
 import type { SidebarBrandMarkOwnerProps, SidebarBrandNameOwnerProps } from '@deepseek-ai/dsh-client-ui-sidebar/client'
@@ -13,8 +15,12 @@ import type { HeroBrandMarkOwnerProps } from '@deepseek-ai/dsh-client-ui-convers
 import type {} from './locales.ts'
 import css from './Brand.module.css'
 
-/** One smooth curve through three samples; the shared geometry of the brand. */
-function CurveMark({ size, className }: { size: number; className?: string | undefined }): ReactNode {
+/** The shared geometry: one rising fit curve and its hero sphere. */
+function BrandMark({ size, className }: { size: number; className?: string | undefined }): ReactNode {
+  const uid = useId().replace(/[^a-zA-Z0-9_-]/g, '')
+  const swoosh = `bf-swoosh-${uid}`
+  const ball = `bf-ball-${uid}`
+  const shadow = `bf-shadow-${uid}`
   return (
     <svg
       aria-hidden="true"
@@ -24,16 +30,41 @@ function CurveMark({ size, className }: { size: number; className?: string | und
       viewBox="0 0 24 24"
       width={size}
     >
+      <defs>
+        <linearGradient id={swoosh} x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stopColor="#0A5752" />
+          <stop offset="1" stopColor="#4FA8A0" />
+        </linearGradient>
+        <radialGradient id={ball} cx="0.34" cy="0.27" r="0.95">
+          <stop offset="0" stopColor="#F4FBFA" />
+          <stop offset="0.45" stopColor="#6FC0B8" />
+          <stop offset="1" stopColor="#0A5752" />
+        </radialGradient>
+        <filter id={shadow} x="-40%" y="-40%" width="180%" height="180%">
+          <feDropShadow dx="0" dy="0.6" stdDeviation="0.6" floodColor="#063B37" floodOpacity="0.4" />
+        </filter>
+      </defs>
       <path
-        d="M3.4 19.2C9 18.5 13.4 14.2 20.6 5.4"
+        d="M1.7 20.7C7.2 20.2 13 16.3 16.1 10.7"
         fill="none"
-        stroke="currentColor"
+        stroke={`url(#${swoosh})`}
         strokeLinecap="round"
-        strokeWidth="1.6"
+        strokeWidth="2.4"
       />
-      <circle cx="5.1" cy="18.9" r="2.05" fill="currentColor" />
-      <circle cx="10.4" cy="16.1" r="2.05" fill="currentColor" />
-      <circle cx="16.2" cy="10.6" r="2.05" fill="currentColor" />
+      <circle cx="15.2" cy="8.4" r="5.8" fill={`url(#${ball})`} filter={`url(#${shadow})`} />
+      <path
+        d="M10.3 5.6A5.6 5.6 0 0 1 14.3 2.95"
+        fill="none"
+        stroke="#EAF7F5"
+        strokeLinecap="round"
+        strokeWidth="0.9"
+        opacity="0.9"
+      />
+      <circle cx="13.3" cy="6.3" r="1.25" fill="#fff" opacity="0.88" />
+      <circle cx="9.6" cy="17.2" r="1.6" fill={`url(#${ball})`} />
+      <circle cx="9.2" cy="16.6" r="0.45" fill="#fff" opacity="0.9" />
+      <circle cx="4.6" cy="19.8" r="1.75" fill={`url(#${ball})`} />
+      <circle cx="4.2" cy="19.2" r="0.45" fill="#fff" opacity="0.9" />
     </svg>
   )
 }
@@ -41,19 +72,19 @@ function CurveMark({ size, className }: { size: number; className?: string | und
 /**
  * Sidebar brand mark occupant (expanded row and collapsed rail).
  * @param props - host-supplied mark geometry.
- * @returns the curve mark at the requested size.
+ * @returns the fit-sphere mark at the requested size.
  */
 export function OverfitBrandMark({ size }: SidebarBrandMarkOwnerProps): ReactNode {
-  return <CurveMark size={size} />
+  return <BrandMark size={size} />
 }
 
 /**
  * Conversation hero brand mark occupant.
  * @param props - host-supplied mark geometry plus the host class.
- * @returns the curve mark at the requested size.
+ * @returns the fit-sphere mark at the requested size.
  */
 export function OverfitHeroMark({ size, className }: HeroBrandMarkOwnerProps): ReactNode {
-  return <CurveMark className={className} size={size} />
+  return <BrandMark className={className} size={size} />
 }
 
 /**

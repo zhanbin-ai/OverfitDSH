@@ -9,9 +9,9 @@ English | [中文](README.zh.md)
 
 ## Overview
 
-This package gives the 拟合 (Overfit) build its visible brand. It occupies the sidebar brand pair — `sidebar.brand.mark` and `sidebar.brand.name` — and the conversation hero mark, `conversation.hero.brand.mark`, replacing the shell's fish fallbacks with the product's fitted-curve mark and localized name.
+This package gives the 拟合 (Overfit) build its visible brand. It occupies the sidebar brand pair — `sidebar.brand.mark` and `sidebar.brand.name` — and the conversation hero mark, `conversation.hero.brand.mark`, replacing the shell's fish fallbacks with the product's fit-sphere mark and localized name.
 
-The mark is one smooth curve through three sample points: the literal gesture of 拟合 / fitting, drawn as plain SVG in `currentColor` so every surface themes it without a second asset. The name comes from this package's `overfit` locale namespace — `拟合` in Chinese, `Overfit` in English.
+The mark is a glossy data sphere riding the end of a rising fit curve — dimensional silhouette first (a bright ball, a swept trail), with a soft ground shadow, a rim light, and a specular highlight for depth. The name comes from this package's `overfit` locale namespace — `拟合` in Chinese, `Overfit` in English.
 
 ## Use this package
 
