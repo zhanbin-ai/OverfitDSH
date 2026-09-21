@@ -1,7 +1,7 @@
 {
   "id": "/",
-  "name": "DeepSeek Harness",
-  "short_name": "DSH",
+  "name": "拟合",
+  "short_name": "拟合",
   "start_url": "/",
   "scope": "/",
   "display": "fullscreen",
