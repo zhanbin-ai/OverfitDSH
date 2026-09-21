@@ -28,7 +28,7 @@ The three registrations install as one declaration-aware set: nested `ctx.slots.
 ## Known limitations and deferred work
 
 - **The name is text, not artwork** — a wordmark asset can replace the span later.
-- **The hero headline keeps upstream copy** — `hero.headline` still reads 探索未至之境 until the brand copy decision lands.
+- **The hero headline is product copy** — `hero.headline` reads 虚拟即现实 ("Virtual is real"); it ships from `ui-conversation`'s dictionaries, not from this package.
 - **No hover animation of its own** — the hero mark inherits the host's gentle sway via its host class.
 
 **Runtime note:** no companion entry. The package holds no mutable runtime state; the occupant set installs and releases through one transactional effect.
