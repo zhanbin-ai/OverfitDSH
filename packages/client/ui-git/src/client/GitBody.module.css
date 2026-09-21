@@ -1,0 +1,28 @@
+/* The placeholder centers copy in the pane; the pane owns the scroll. */
+.root {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 0;
+  padding: 24px;
+  color: var(--dsw-alias-label-primary);
+  font-size: var(--dsh-content-font-size-secondary, 13px);
+  line-height: 1.5;
+}
+
+/* One quiet card: title, then the hint underneath. */
+.card {
+  max-width: 280px;
+  text-align: center;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.body {
+  margin: 8px 0 0;
+  color: var(--dsw-alias-label-secondary);
+}

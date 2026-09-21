@@ -243,6 +243,10 @@
     - id: ui-sidebar-files
       name: '@deepseek-ai/dsh-client-ui-sidebar-files'
 
+    # The right Sidebar's Git workbench tab (product addition; S1 skeleton).
+    - id: ui-git
+      name: '@deepseek-ai/dsh-client-ui-git'
+
     - id: ui-settings
       name: '@deepseek-ai/dsh-client-ui-settings'
 
