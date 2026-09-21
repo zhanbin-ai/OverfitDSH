@@ -94,6 +94,7 @@
     { "path": "./packages/client/ui-sidebar-browser" },
     { "path": "./packages/client/ui-sidebar-files" },
     { "path": "./packages/client/ui-git" },
+    { "path": "./packages/client/ui-product-theme" },
     { "path": "./packages/client/ui-jobs" },
     { "path": "./packages/client/ui-schedule" },
     { "path": "./packages/client/ui-directory-picker-browse" },

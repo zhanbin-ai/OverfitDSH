@@ -201,6 +201,10 @@
     - id: ui-theme
       name: '@deepseek-ai/dsh-client-ui-theme'
 
+    # Product theme layer: S2 accent pilot stacked through the ui-theme seam.
+    - id: ui-product-theme
+      name: '@deepseek-ai/dsh-client-ui-product-theme'
+
     - id: locale
       name: '@deepseek-ai/dsh-client-locale'
 
