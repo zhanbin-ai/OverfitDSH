@@ -1,11 +1,12 @@
 /**
  * The 拟合 / Overfit brand marks and name for the sidebar and hero slots.
  *
- * The mark is a glossy data sphere riding the end of a rising fit curve —
- * dimensional silhouette first (a bright ball, a swept trail), with a soft
- * ground shadow, a rim light, and a specular highlight for depth. Colours are
- * the product teal family; both surfaces share one geometry, and gradient ids
- * are per-instance so two marks can coexist in one document.
+ * The mark is an orbital core: a luminous sphere held inside a tilted orbit
+ * ring, with a small node riding the ring — the fit locked into orbit.
+ * Sci-fi depth comes from a soft halo, a rim light, a specular highlight and
+ * a glowing node; the ring palette is tuned to stay readable on both light
+ * and dark surfaces, and gradient ids are per-instance so two marks can
+ * coexist in one document.
  */
 import { useId } from 'react'
 import type { ReactNode } from 'react'
@@ -15,12 +16,13 @@ import type { HeroBrandMarkOwnerProps } from '@deepseek-ai/dsh-client-ui-convers
 import type {} from './locales.ts'
 import css from './Brand.module.css'
 
-/** The shared geometry: one rising fit curve and its hero sphere. */
+/** The shared geometry: one orbital core. */
 function BrandMark({ size, className }: { size: number; className?: string | undefined }): ReactNode {
   const uid = useId().replace(/[^a-zA-Z0-9_-]/g, '')
-  const swoosh = `bf-swoosh-${uid}`
   const ball = `bf-ball-${uid}`
-  const shadow = `bf-shadow-${uid}`
+  const ring = `bf-ring-${uid}`
+  const halo = `bf-halo-${uid}`
+  const glow = `bf-glow-${uid}`
   return (
     <svg
       aria-hidden="true"
@@ -31,40 +33,52 @@ function BrandMark({ size, className }: { size: number; className?: string | und
       width={size}
     >
       <defs>
-        <linearGradient id={swoosh} x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0" stopColor="#0A5752" />
-          <stop offset="1" stopColor="#4FA8A0" />
-        </linearGradient>
-        <radialGradient id={ball} cx="0.34" cy="0.27" r="0.95">
-          <stop offset="0" stopColor="#F4FBFA" />
-          <stop offset="0.45" stopColor="#6FC0B8" />
-          <stop offset="1" stopColor="#0A5752" />
+        <radialGradient id={ball} cx="0.35" cy="0.3" r="0.95">
+          <stop offset="0" stopColor="#F2FFFD" />
+          <stop offset="0.42" stopColor="#5AD8CE" />
+          <stop offset="1" stopColor="#07353B" />
         </radialGradient>
-        <filter id={shadow} x="-40%" y="-40%" width="180%" height="180%">
-          <feDropShadow dx="0" dy="0.6" stdDeviation="0.6" floodColor="#063B37" floodOpacity="0.4" />
+        <linearGradient id={ring} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#0B5F5C" />
+          <stop offset="1" stopColor="#2FA8A0" />
+        </linearGradient>
+        <radialGradient id={halo} cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#5AF2E4" stopOpacity="0.45" />
+          <stop offset="1" stopColor="#5AF2E4" stopOpacity="0" />
+        </radialGradient>
+        <filter id={glow} x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="0.7" />
         </filter>
       </defs>
-      <path
-        d="M1.7 20.7C7.2 20.2 13 16.3 16.1 10.7"
+      <circle cx="12" cy="12.2" r="10" fill={`url(#${halo})`} opacity="0.7" />
+      <ellipse
+        cx="12"
+        cy="12.6"
+        rx="10.2"
+        ry="3.5"
+        transform="rotate(-18 12 12.6)"
         fill="none"
-        stroke={`url(#${swoosh})`}
-        strokeLinecap="round"
-        strokeWidth="2.4"
+        stroke={`url(#${ring})`}
+        strokeWidth="1.25"
       />
-      <circle cx="15.2" cy="8.4" r="5.8" fill={`url(#${ball})`} filter={`url(#${shadow})`} />
+      <circle cx="12" cy="12" r="4.7" fill={`url(#${ball})`} />
       <path
-        d="M10.3 5.6A5.6 5.6 0 0 1 14.3 2.95"
+        d="M8.3 9.4A4.7 4.7 0 0 1 12.5 7.1"
         fill="none"
-        stroke="#EAF7F5"
-        strokeLinecap="round"
-        strokeWidth="0.9"
-        opacity="0.9"
+        stroke="#C9FFF8"
+        strokeWidth="0.8"
+        opacity="0.85"
       />
-      <circle cx="13.3" cy="6.3" r="1.25" fill="#fff" opacity="0.88" />
-      <circle cx="9.6" cy="17.2" r="1.6" fill={`url(#${ball})`} />
-      <circle cx="9.2" cy="16.6" r="0.45" fill="#fff" opacity="0.9" />
-      <circle cx="4.6" cy="19.8" r="1.75" fill={`url(#${ball})`} />
-      <circle cx="4.2" cy="19.2" r="0.45" fill="#fff" opacity="0.9" />
+      <circle cx="10.5" cy="10.2" r="1.05" fill="#fff" opacity="0.9" />
+      <circle cx="18.8" cy="7.95" r="2.5" fill="#3FD9CC" opacity="0.3" filter={`url(#${glow})`} />
+      <rect
+        x="17.95"
+        y="7.1"
+        width="1.7"
+        height="1.7"
+        transform="rotate(45 18.8 7.95)"
+        fill="#3FD9CC"
+      />
     </svg>
   )
 }
@@ -72,7 +86,7 @@ function BrandMark({ size, className }: { size: number; className?: string | und
 /**
  * Sidebar brand mark occupant (expanded row and collapsed rail).
  * @param props - host-supplied mark geometry.
- * @returns the fit-sphere mark at the requested size.
+ * @returns the orbital-core mark at the requested size.
  */
 export function OverfitBrandMark({ size }: SidebarBrandMarkOwnerProps): ReactNode {
   return <BrandMark size={size} />
@@ -81,7 +95,7 @@ export function OverfitBrandMark({ size }: SidebarBrandMarkOwnerProps): ReactNod
 /**
  * Conversation hero brand mark occupant.
  * @param props - host-supplied mark geometry plus the host class.
- * @returns the fit-sphere mark at the requested size.
+ * @returns the orbital-core mark at the requested size.
  */
 export function OverfitHeroMark({ size, className }: HeroBrandMarkOwnerProps): ReactNode {
   return <BrandMark className={className} size={size} />

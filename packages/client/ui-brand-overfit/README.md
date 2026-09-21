@@ -9,9 +9,9 @@ English | [中文](README.zh.md)
 
 ## Overview
 
-This package gives the 拟合 (Overfit) build its visible brand. It occupies the sidebar brand pair — `sidebar.brand.mark` and `sidebar.brand.name` — and the conversation hero mark, `conversation.hero.brand.mark`, replacing the shell's fish fallbacks with the product's fit-sphere mark and localized name.
+This package gives the 拟合 (Overfit) build its visible brand. It occupies the sidebar brand pair — `sidebar.brand.mark` and `sidebar.brand.name` — and the conversation hero mark, `conversation.hero.brand.mark`, replacing the shell's fish fallbacks with the product's orbital-core mark and localized name.
 
-The mark is a glossy data sphere riding the end of a rising fit curve — dimensional silhouette first (a bright ball, a swept trail), with a soft ground shadow, a rim light, and a specular highlight for depth. The name comes from this package's `overfit` locale namespace — `拟合` in Chinese, `Overfit` in English.
+The mark is an orbital core: a luminous sphere held inside a tilted orbit ring, with a small diamond node riding the ring — the fit locked into orbit. A soft halo, a rim light, a specular highlight and the glowing node carry the depth; the ring palette stays readable on both light and dark surfaces. The name comes from this package's `overfit` locale namespace — `拟合` in Chinese, `Overfit` in English.
 
 ## Use this package
 
