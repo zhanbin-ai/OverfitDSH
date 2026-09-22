@@ -155,6 +155,7 @@ export function HeroShell({ t, renderSlot, children }: HeroShellProps) {
             <span className={css.previewBadge}>{t('hero.preview')}</span>
           </span>
         </div>
+        <p className={css.subline}>{t('hero.subheadline')}</p>
         <div className={css.body}>
           {/* The composer remains mounted outside this component. */}
         </div>

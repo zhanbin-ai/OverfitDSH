@@ -74,6 +74,18 @@
   white-space: nowrap;
 }
 
+/* Brand motto under the headline: a quiet letterspaced caption line. The
+   stack gap supplies 12; the negative start margin tightens the pair. */
+.subline {
+  margin: -8px 0 0;
+  text-align: center;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--dsw-alias-label-caption);
+}
+
 /* Keep hover detection on a stationary box while the mark moves within it;
    hover rules target the hitbox so a slot-occupant mark swims too. */
 .fishHitbox {

@@ -3,3 +3,13 @@
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
+
+/* The counterpart-script lockup beside the localized name: quieter and
+   smaller so the pair reads as one wordmark. */
+.nameSecondary {
+  font-size: 0.68em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+  white-space: nowrap;
+}

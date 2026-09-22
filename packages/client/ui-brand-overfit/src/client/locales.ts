@@ -9,7 +9,7 @@ import type {} from '@deepseek-ai/dsh-client-ui-slots'
 
 declare module '@deepseek-ai/dsh-client-ui-slots' {
   interface LocaleNamespaceMap {
-    /** Own-brand display name (sidebar brand row). */
+    /** Own-brand bilingual display name (sidebar brand row). */
     overfit: OverfitKey
   }
 }
@@ -17,6 +17,7 @@ declare module '@deepseek-ai/dsh-client-ui-slots' {
 /** Simplified Chinese dictionary and key-set source of truth. */
 export const zh = {
   'name': '拟合',
+  'nameSecondary': 'Overfit',
 } satisfies Record<string, string>
 
 /** Overfit dictionary key union. */
@@ -25,4 +26,5 @@ export type OverfitKey = keyof typeof zh
 /** English dictionary, checked against the Chinese key set. */
 export const en = {
   'name': 'Overfit',
+  'nameSecondary': '拟合',
 } satisfies Record<OverfitKey, string>

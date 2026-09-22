@@ -26,6 +26,7 @@
   - button "Open right sidebar":
     - img
 - text: Virtual is real Preview
+- paragraph: Creation Imitates Nature.
 - button "Choose workspace":
   - img
   - text: workspace

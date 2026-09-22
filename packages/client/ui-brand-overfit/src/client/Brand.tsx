@@ -111,10 +111,16 @@ export function OverfitHeroMark({ size, className }: HeroBrandMarkOwnerProps): R
 }
 
 /**
- * Sidebar brand name occupant: the product name in the active language.
+ * Sidebar brand name occupant: the bilingual lockup — the product name in the
+ * active language with its counterpart script beside it.
  * @param props - the framework-injected translate seat.
- * @returns the brand name text.
+ * @returns the brand name and its counterpart text.
  */
 export function OverfitBrandName({ t }: SidebarBrandNameOwnerProps & PropsLocale<'overfit'>): ReactNode {
-  return <span className={css.name}>{t('name')}</span>
+  return (
+    <>
+      <span className={css.name}>{t('name')}</span>
+      <span className={css.nameSecondary}>{t('nameSecondary')}</span>
+    </>
+  )
 }
