@@ -24,9 +24,8 @@ export type GitBodyProps =
   & GitInjected
   & PropsLocale<'sidebarGit'>
 
-/** The one-letter mark a change row shows. */
+/** The one-letter mark a tracked change row shows; untracked rows take the dictionary badge. */
 function badgeOf(entry: GitChangeEntry): string {
-  if (entry.untracked) return 'U'
   return entry.index === ' ' ? entry.worktree : entry.index
 }
 
@@ -50,7 +49,7 @@ function ChangeRow({ entry, side, busy, onOpen, onAct, t }: {
   readonly onAct: () => void
   readonly t: TranslateNS<'sidebarGit'>
 }): ReactNode {
-  const badge = badgeOf(entry)
+  const badge = entry.untracked ? t('badge.untracked') : badgeOf(entry)
   const label = entry.from === undefined ? entry.path : `${entry.from} → ${entry.path}`
   return (
     <li className={css.row} data-git-entry={entry.path}>

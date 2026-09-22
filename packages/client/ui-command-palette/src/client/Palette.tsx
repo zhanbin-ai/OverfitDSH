@@ -147,7 +147,7 @@ export function CommandPalette({ env, t }: CommandPaletteProps): ReactNode {
             onChange={(event) => { setQuery(event.target.value); setActive(0) }}
             onKeyDown={onInputKeyDown}
           />
-          <span className={css.escHint}>Esc</span>
+          <span className={css.escHint}>{t('escapeHint')}</span>
         </div>
         <div className={css.list} role="listbox">
           {filtered.length === 0 && <div className={css.empty}>{t('empty')}</div>}
