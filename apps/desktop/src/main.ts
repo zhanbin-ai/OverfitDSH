@@ -407,6 +407,10 @@ async function main(): Promise<void> {
       }
       return forwardWebRequest(request, hostUrl, hostCookie)
     }
+    if (url.hostname === 'shell') {
+      // Shell-owned modal documents (update dialogs, mandatory notices) never reach the Host.
+      return serveWebDocument(request, join(app.getAppPath(), 'renderer'))
+    }
     return Promise.resolve(new Response(null, { status: 404 }))
   })
 
@@ -566,7 +570,8 @@ async function main(): Promise<void> {
 
   const automaticCheck = (): void => {
     if (!quitting) void mandatoryPolicy?.check('foreground-or-resume').catch((error: unknown) => { console.error(error) })
-    if (!quitting) void updateSchedule.check().catch((error: unknown) => { console.error(error) })
+    // Builds without a packaged update source stay silent until a user asks explicitly.
+    if (!quitting && updates.isEnabled) void updateSchedule.check().catch((error: unknown) => { console.error(error) })
   }
   powerMonitor.on('resume', automaticCheck)
   app.on('will-quit', () => {
