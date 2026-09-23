@@ -28,7 +28,7 @@ kind: "package-reference"
 ## 已知限制与延期工作
 
 - **名称是文本而非字标**——后续可用字标资源替换该 span。
-- **首屏文案是产品文案**——`hero.headline` 现为「虚拟即现实」（英文侧 “Virtual is real”）、`hero.subheadline` 在其下补一行英文箴言 “Creation Imitates Nature.”，两者均随 `ui-conversation` 的字典发布，不由本包提供。
+- **首屏文案是产品文案**——`hero.headline` 现为「虚拟即现实」（英文侧 “Virtual is real”）；其下两行英文均随 `ui-conversation` 的字典发布：箴言 “Creature Imitates Creator”（`hero.subheadline`）与浅色小字注解 “Artificial intelligence evolves toward humankind, and humankind imitates its Creator.”（`hero.annotation`），不由本包提供。
 - **自身无悬停动画**——首屏标志经由宿主 class 继承轻微的摆动效果。
 
 **运行时不变式：** 不发布伴生入口。本包不保留可变运行时状态；填充集合通过同一个事务性 effect 安装与释放。

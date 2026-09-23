@@ -26,7 +26,8 @@
   - button "Open right sidebar":
     - img
 - text: Virtual is real Preview
-- paragraph: Creation Imitates Nature.
+- paragraph: Creature Imitates Creator
+- paragraph: Artificial intelligence evolves toward humankind, and humankind imitates its Creator.
 - button "Choose workspace":
   - img
   - text: workspace

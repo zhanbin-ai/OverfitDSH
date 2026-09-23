@@ -156,6 +156,7 @@ export function HeroShell({ t, renderSlot, children }: HeroShellProps) {
           </span>
         </div>
         <p className={css.subline}>{t('hero.subheadline')}</p>
+        <p className={css.annotation}>{t('hero.annotation')}</p>
         <div className={css.body}>
           {/* The composer remains mounted outside this component. */}
         </div>
