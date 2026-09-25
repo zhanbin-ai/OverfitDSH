@@ -1,0 +1,32 @@
+{
+  "name": "@deepseek-ai/dsh-bundle-live-demo",
+  "description": "LIVE-DEMO bundle: paints a visible banner; install it from the Plugins page (or `dsh plugin add`) and watch it load into the open page without a reload or restart",
+  "version": "0.1.6-alpha.2",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "bundle": "tsdown"
+  },
+  "license": "MIT",
+  "files": [
+    "lib/**",
+    "cordis.patch.yml"
+  ]
+}

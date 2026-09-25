@@ -1,0 +1,7 @@
+# LIVE-DEMO bundle: one client row painting a visible fixed-position banner.
+# Installing this bundle (Plugins page or `dsh plugin --profile <name> add`)
+# enables the row; with the profile HMR enabled it loads into open pages
+# without a reload or restart.
+- insert:
+    - id: ui-live-demo
+      name: '@deepseek-ai/dsh-bundle-live-demo'
