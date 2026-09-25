@@ -1965,6 +1965,8 @@ importers:
         specifier: workspace:^
         version: link:../../session-query/session-query
 
+  packages/bundle/live-demo-bundle: {}
+
   packages/bundle/sdk-app:
     dependencies:
       '@deepseek-ai/dsh-cmdline':
